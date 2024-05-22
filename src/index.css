@@ -25,26 +25,56 @@ main {
 }
 
 form {
-    width: 300px;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
 }
 
-.resume-edit-btn {
-    background: transparent;
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-details-container {
+    width: 20em;
+    margin-bottom: 1em;
+}
+
+.schools-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.schools-container div button {
+    margin-left: 5px;
+}
+
+/* btns */
+
+.isShown-btn {
+    background: gray;
+    color: white;
     border: none;
     width: 100%;
     cursor: pointer;
-    padding: 0;
+    padding: 1em;
+}
+
+.add-education-btn {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.save-btn {
+    margin: 10px 0;
 }
 
 /* resume */
 
 .resume {
     border: 1px solid black;
-    width: 700px;
-    height: 800px;
+    width: 45em;
+    height: 50em;
     padding: 2em;
 }
 
@@ -58,15 +88,4 @@ form {
 .resume-personal-details-sub {
     display: flex;
     gap: 10px;
-}
-
-/* education */
-
-.education {
-    margin: 5px 0;
-}
-
-.education div {
-    display: flex;
-    justify-content: space-between;
 }
