@@ -18,10 +18,14 @@ p {
 
 main {
     padding: 2em 0;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
+}
+
+.info {
+    width: 400px;
 }
 
 form {
@@ -35,7 +39,6 @@ form div {
 }
 
 .personal-details-container {
-    width: 20em;
     margin-bottom: 1em;
 }
 
@@ -88,4 +91,15 @@ form div {
 .resume-personal-details-sub {
     display: flex;
     gap: 10px;
+}
+
+/* education */
+
+.resume-schools-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume-schools-container div {
+    margin-bottom: 5px;
 }

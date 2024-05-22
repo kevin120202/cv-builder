@@ -1,7 +1,15 @@
 import React from "react";
 import "../index.css"
+import ResumeSchools from "./ResumeSchools";
+
 
 function Resume(props) {
+    console.log(props.formDataEducationDetails);
+
+    const resumeSchoolsComponents = props.formDataEducationDetails.map(school => {
+        return <ResumeSchools school={school} />
+    })
+
     return (
         <div>
             <div className="resume-personal-details">
@@ -15,6 +23,7 @@ function Resume(props) {
             <div className="resume-education">
                 <h3>Education</h3>
                 <hr />
+                {resumeSchoolsComponents}
             </div>
             <div className="resume-experience">
                 <h3>Experience</h3>

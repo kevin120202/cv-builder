@@ -9,22 +9,22 @@ import { v4 as uuidv4, v4 } from 'uuid'
 
 function App() {
     const [formPersonalDetails, setFormPersonalDetails] = useState({
-        fullName: "kevin",
+        fullName: "Kevin Dela Paz",
         email: "kevin@gmail.com",
-        number: "123",
-        address: "123",
+        number: "847-897-8186",
+        address: "309 Panama Avenue",
     })
     const [formEducationDetails, setFormEducationDetails] = useState([{
-        schoolName: "niu",
-        degree: "bachelors",
-        endDate: "may 2026",
-        location: "dekalb, il",
+        schoolName: "Northern Illinois University",
+        degree: "Bachelors of Science in Computer Science",
+        endDate: "May 2026",
+        location: "Dekalb, IL",
         id: uuidv4(),
     }, {
-        schoolName: "niu",
-        degree: "bachelors",
-        endDate: "may 2026",
-        location: "dekalb, il",
+        schoolName: "Elgin Community College",
+        degree: "Associates of Arts",
+        endDate: "May 2024",
+        location: "Elgin, IL",
         id: uuidv4(),
     }])
 
@@ -45,7 +45,7 @@ function App() {
                 <Education formData={formEducationDetails} />
             </div>
             <div className='resume'>
-                <Resume formDataPersonalDetails={formPersonalDetails} />
+                <Resume formDataPersonalDetails={formPersonalDetails} formDataEducationDetails={formEducationDetails} />
             </div>
         </main>
     )
