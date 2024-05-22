@@ -2,9 +2,17 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* typography */
+
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+}
 
 /* layout */
 
@@ -23,27 +31,42 @@ form {
     border: 1px solid black;
 }
 
+.resume-edit-btn {
+    background: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+}
+
 /* resume */
 
 .resume {
     border: 1px solid black;
     width: 700px;
     height: 800px;
+    padding: 2em;
 }
 
 .resume-personal-details {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2em;
 }
 
 .resume-personal-details-sub {
     display: flex;
-    gap: 2em;
+    gap: 10px;
 }
 
 /* education */
 
-.dates {
-    /* display: flex; */
+.education {
+    margin: 5px 0;
+}
+
+.education div {
+    display: flex;
+    justify-content: space-between;
 }

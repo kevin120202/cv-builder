@@ -10,6 +10,7 @@ function PersonalDetailsResume(props) {
                 <p>{props.personalDetails.address}</p>
             </div>
         </section>
+
     )
 }
 
