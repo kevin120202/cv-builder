@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './index.css'
 import PersonalDetails from './components/PersonalDetails'
-import Resume from "./components/Resume"
+import Education from "./components/Education"
+import PersonalDetailsResume from "./components/PersonalDetailsResume"
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
     const [formPersonalDetails, setFormPersonalDetails] = useState({
@@ -10,11 +12,31 @@ function App() {
         number: "",
         address: "",
     })
+    const [formEducation, setFormEducation] = useState([
+        {
+            schoolName: "",
+            degree: "",
+            startDate: "",
+            endDate: "",
+            location: "",
+            id: uuidv4(),
+        }
+    ])
 
-    function handleChange(e) {
+    function handlePersonalDetailsChange(e) {
         const { name, value } = e.target
         // console.log(name, value);
         setFormPersonalDetails(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: value,
+            }
+        })
+    }
+
+    function handleEducationChange(e) {
+        const { name, value } = e.target
+        setFormEducation(prevFormData => {
             return {
                 ...prevFormData,
                 [name]: value
@@ -22,12 +44,23 @@ function App() {
         })
     }
 
+    function addEducation(e) {
+        pass
+    }
+
     return (
         <main>
             <div className="info">
-                <PersonalDetails formData={formPersonalDetails} onChange={handleChange} />
+                <PersonalDetails formData={formPersonalDetails} onChange={handlePersonalDetailsChange} />
+                <div>
+                    <Education formData={formEducation} onChange={handleEducationChange} />
+                    <button onClick={addEducation}>Save</button>
+                </div>
+
             </div>
-            <Resume personalDetails={formPersonalDetails} />
+            <div className='resume'>
+                <PersonalDetailsResume personalDetails={formPersonalDetails} />
+            </div>
         </main>
     )
 }
