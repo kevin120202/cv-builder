@@ -38,18 +38,27 @@ form div {
     flex-direction: column;
 }
 
-.personal-details-container {
+.schools-container {
     margin-bottom: 1em;
 }
 
 .schools-container div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 5px;
 }
 
 .schools-container div button {
     margin-left: 5px;
+}
+
+.personal-details-container {
+    margin-bottom: 5px;
+}
+
+.education-container {
+    margin-bottom: 5px;
 }
 
 /* btns */
@@ -61,11 +70,12 @@ form div {
     width: 100%;
     cursor: pointer;
     padding: 1em;
+    margin-bottom: 1em;
 }
 
-.add-education-btn {
+.add-btn {
     width: 100%;
-    margin: 10px 0;
+    margin-bottom: 5px;
 }
 
 .save-btn {
@@ -98,5 +108,17 @@ form div {
 .resume-schools {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+}
+
+/* experience */
+
+.jobs-container div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.jobs-container div button {
+    margin-left: 5px;
 }

@@ -59,7 +59,7 @@ function NewEducation(props) {
 
     return (
         <div>
-            <button className="add-education-btn" onClick={toggleisAdd}>{isAdd ? "Close" : "Add"} Education</button>
+            <button className="add-btn" onClick={toggleisAdd}>{isAdd ? "Close" : "Add"} Education</button>
             {isAdd &&
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="school-name">School</label>

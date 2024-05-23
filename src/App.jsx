@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './index.css'
 import PersonalDetails from './components/PersonalDetails'
 import Education from "./components/Education"
+import Experience from './components/Experience'
 import Resume from './components/Resume'
 import PersonalDetailsResume from "./components/PersonalDetailsResume"
 import EducationResume from './components/EducationResume'
@@ -22,6 +23,27 @@ function App() {
         id: uuidv4(),
     },
     ])
+    const [formExperienceDetails, setFormExperienceDetails] = useState([{
+        companyName: "Google",
+        title: "Software Engineer",
+        startDate: "06/2024",
+        endDate: "Present",
+        location: "Chicago, IL",
+        bulletPointOne: "code",
+        bulletPointTwo: "code",
+        bulletPointThree: "code",
+        id: uuidv4()
+    }, {
+        companyName: "Google",
+        title: "Software Engineer",
+        startDate: "06/2024",
+        endDate: "Present",
+        location: "Chicago, IL",
+        bulletPointOne: "code",
+        bulletPointTwo: "code",
+        bulletPointThree: "code",
+        id: uuidv4()
+    }])
 
     const handlePersonalDetailsChange = (e) => {
         const { name, value } = e.target
@@ -49,14 +71,23 @@ function App() {
         );
     }
 
+    const handleAddExperience = (newJob) => {
+        setFormExperienceDetails(prev => {
+            return [...prev, newJob]
+        })
+    }
+
+    console.log(formExperienceDetails);
+
     return (
         <main>
             <div className='info'>
                 <PersonalDetails formData={formPersonalDetails} onChange={handlePersonalDetailsChange} />
                 <Education formData={formEducationDetails} onAddEducation={handleAddEducation} onDelete={handleDeleteEducation} onEditFormEducation={handleEditEducation} />
+                <Experience formData={formExperienceDetails} onAddExperience={handleAddExperience} />
             </div>
             <div className='resume'>
-                <Resume formDataPersonalDetails={formPersonalDetails} formDataEducationDetails={formEducationDetails} />
+                <Resume formDataPersonalDetails={formPersonalDetails} formDataEducationDetails={formEducationDetails} formExperienceDetails={formExperienceDetails} />
             </div>
         </main>
     )

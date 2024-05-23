@@ -1,12 +1,6 @@
 import React from "react";
 
 function ResumeSchools(props) {
-    // console.log(props.school);
-
-    // const hasEmptyValues = (obj) => {
-    //     return Object.values(obj).every(val => val.trim() !== "")
-    // }
-
 
     return (
         <div>
