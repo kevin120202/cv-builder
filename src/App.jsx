@@ -13,8 +13,8 @@ function App() {
     const [formPersonalDetails, setFormPersonalDetails] = useState({
         fullName: "Kevin Dela Paz",
         email: "kevin@gmail.com",
-        number: "847-897-8186",
-        address: "309 Panama Avenue",
+        number: "111-111-1111",
+        address: "Chicago, IL",
     })
     const [formEducationDetails, setFormEducationDetails] = useState([{
         schoolName: "Northern Illinois University",
@@ -150,9 +150,5 @@ function App() {
         </main>
     )
 }
-
-
-
-
 
 export default App
