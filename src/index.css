@@ -6,12 +6,17 @@ body {
 }
 
 /* typography */
-
+h1,
 h2,
 h3,
-p {
+p,
+hr {
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    margin-bottom: 1em;
 }
 
 /* layout */
@@ -122,3 +127,19 @@ form div {
 .jobs-container div button {
     margin-left: 5px;
 }
+
+.resume-job-container ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.company-name-and-dates {
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-dates-container {
+    display: flex;
+}
+
+/* skills */

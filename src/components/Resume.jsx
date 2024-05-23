@@ -11,7 +11,9 @@ function Resume(props) {
         return <ResumeSchools school={school} key={school.id} />
     })
 
-    console.log(props.formExperienceDetails[0]);
+    const resumeJobsComponents = props.formExperienceDetails.map(job => {
+        return <ResumeJobs job={job} key={job.id} />
+    })
 
     return (
         <div>
@@ -31,12 +33,12 @@ function Resume(props) {
             <div className="resume-experience">
                 <h3>Experience</h3>
                 <hr />
-                <ResumeJobs job={props.formExperienceDetails[0]} />
+                {resumeJobsComponents}
             </div>
-            <div className="resume-skills-interest">
+            {/* <div className="resume-skills-interest">
                 <h3>Skills & Interests</h3>
                 <hr />
-            </div>
+            </div> */}
         </div>
     )
 }

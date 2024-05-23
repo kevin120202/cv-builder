@@ -14,7 +14,7 @@ function Experience(props) {
                 onClick={toggleShown}
                 className="isShown-btn">{isShown ? "Hide" : "Show"} Experience
             </button>
-            {isShown && <NewExperience formData={props.formData} onAddExperience={props.onAddExperience} />}
+            {isShown && <NewExperience formData={props.formData} onAddExperience={props.onAddExperience} onDelete={props.onDelete} onEditFormJob={props.onEditFormJob} />}
         </div>
     )
 }

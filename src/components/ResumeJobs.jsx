@@ -3,8 +3,8 @@ import React from "react";
 function ResumeJobs(props) {
     // console.log(props.job.companyName);
     return (
-        <div>
-            <div>
+        <div className="resume-job-container">
+            <div className="company-name-and-dates">
                 <p>{props.job.companyName}</p>
                 <p>{props.job.startDate} - {props.job.endDate}</p>
             </div>

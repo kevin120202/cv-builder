@@ -40,14 +40,24 @@ function NewExperience(props) {
 
     const handleExperienceChange = (e) => {
         const { name, value } = e.target
+        console.log(name);
         setExperienceDetails(prev => ({
             ...prev,
             [name]: value
         }))
     }
 
+    const handleEditExperience = (id) => {
+        props.formData.map(job => {
+            if (job.id === id) {
+                setExperienceDetails(job)
+            }
+        })
+        props.onEditFormJob(id, formExperienceDetails)
+    }
+
     const jobs = props.formData.map(job => {
-        return <Jobs job={job} key={job.id} />
+        return <Jobs job={job} key={job.id} onDelete={props.onDelete} onEdit={handleEditExperience} />
     })
 
     const hasEmptyValues = (obj) => {
@@ -64,7 +74,7 @@ function NewExperience(props) {
                         type="text"
                         placeholder="Enter company name"
                         onChange={handleExperienceChange}
-                        value={formExperienceDetails.schoolName}
+                        value={formExperienceDetails.companyName}
                         name="companyName"
                         id="company-name"
                     />
@@ -73,11 +83,11 @@ function NewExperience(props) {
                         type="text"
                         placeholder="Enter title"
                         onChange={handleExperienceChange}
-                        value={formExperienceDetails.degree}
+                        value={formExperienceDetails.title}
                         name="title"
                         id="title"
                     />
-                    <div>
+                    <div className="experience-dates-container">
                         <label htmlFor="start-date">Start date</label>
                         <input
                             type="text"

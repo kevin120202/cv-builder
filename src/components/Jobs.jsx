@@ -1,8 +1,6 @@
 import React from "react";
 
 function Jobs(props) {
-    // console.log(props.job);
-
     const hasEmptyValues = (obj) => {
         return Object.values(obj).every(val => val.trim() !== "")
     }
