@@ -5,8 +5,6 @@ import Education from "./components/Education"
 import Experience from './components/Experience'
 import Resume from './components/Resume'
 // import Skills from './components/Skills'
-import PersonalDetailsResume from "./components/PersonalDetailsResume"
-import EducationResume from './components/EducationResume'
 import { v4 as uuidv4 } from 'uuid'
 
 function App() {
