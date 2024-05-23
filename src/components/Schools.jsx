@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 
 function Schools(props) {
-    const [isUpdate, setIsUpdate] = useState(false)
-    const [isRemove, setIsRemove] = useState(false)
+    // console.log(props.onDelete);
+
+    const hasEmptyValues = (obj) => {
+        return Object.values(obj).every(val => val.trim() !== "")
+    }
 
     return (
         <div className="schools-container">
-            <span>{props.schoolName}</span>
-            <div>
-                <button>Update</button>
-                <button>Remove</button>
-            </div>
+            {hasEmptyValues(props.school) && (
+                <div>
+                    <span>{props.school.schoolName}</span>
+                    <div>
+                        <button onClick={() => props.onEdit(props.school.id)}>Edit</button>
+                        <button onClick={() => props.onDelete(props.school.id)}>Remove</button>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

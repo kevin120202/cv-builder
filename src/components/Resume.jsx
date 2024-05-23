@@ -4,10 +4,10 @@ import ResumeSchools from "./ResumeSchools";
 
 
 function Resume(props) {
-    console.log(props.formDataEducationDetails);
+    // console.log(props.formDataEducationDetails);
 
     const resumeSchoolsComponents = props.formDataEducationDetails.map(school => {
-        return <ResumeSchools school={school} />
+        return <ResumeSchools school={school} key={school.id} />
     })
 
     return (

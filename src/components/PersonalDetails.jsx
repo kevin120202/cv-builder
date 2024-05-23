@@ -4,7 +4,7 @@ import PersonalDetailsForm from "./PersonalDetailsForm";
 
 function PersonalDetails(props) {
     // console.log(props.formData);
-    const [isShown, setIsShown] = useState(false)
+    const [isShown, setIsShown] = useState(true)
 
     const toggleShown = () => {
         setIsShown(prevShown => !prevShown)

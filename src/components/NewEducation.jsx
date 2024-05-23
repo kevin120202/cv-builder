@@ -1,29 +1,73 @@
 import React, { useState } from "react";
 import Schools from "./Schools";
+import { v4 as uuidv4 } from 'uuid'
 
 
 function NewEducation(props) {
-    const [isAdd, setIsAdd] = useState(false)
+    // console.log(props.onChange);
+    const [isAdd, setIsAdd] = useState(true)
+    const [formEducationDetails, setEducationDetails] = useState({
+        schoolName: "",
+        degree: "",
+        endDate: "",
+        location: "",
+        id: uuidv4()
+    })
 
     const toggleisAdd = () => {
         setIsAdd(prevIsAdd => !prevIsAdd)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (hasEmptyValues(formEducationDetails)) {
+            props.onAddEducation(formEducationDetails)
+            setEducationDetails({
+                schoolName: "",
+                degree: "",
+                endDate: "",
+                location: "",
+                id: uuidv4()
+            })
+        }
+    }
+
+    const handleEducationChange = (e) => {
+        const { name, value } = e.target
+        setEducationDetails(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
+    const handleEditEducation = (id) => {
+        props.formData.map(school => {
+            if (school.id === id) {
+                setEducationDetails(school)
+            }
+        })
+        props.onEditFormEducation(id, formEducationDetails)
+    }
+
     const schools = props.formData.map(school => {
-        return <Schools schoolName={school.schoolName} key={school.id} />
+        return <Schools school={school} key={school.id} onDelete={props.onDelete} onEdit={handleEditEducation} />
     })
+
+    const hasEmptyValues = (obj) => {
+        return Object.values(obj).every(val => val.trim() !== "")
+    }
 
     return (
         <div>
             <button className="add-education-btn" onClick={toggleisAdd}>{isAdd ? "Close" : "Add"} Education</button>
             {isAdd &&
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="school-name">School</label>
                     <input
                         type="text"
                         placeholder="Enter school name"
-                        // onChange={handleChange}
-                        // value={formData.schoolName}
+                        onChange={handleEducationChange}
+                        value={formEducationDetails.schoolName}
                         name="schoolName"
                         id="school-name"
                     />
@@ -31,8 +75,8 @@ function NewEducation(props) {
                     <input
                         type="text"
                         placeholder="Enter degree"
-                        // onChange={handleChange}
-                        // value={formData.degree}
+                        onChange={handleEducationChange}
+                        value={formEducationDetails.degree}
                         name="degree"
                         id="degree"
                     />
@@ -40,8 +84,8 @@ function NewEducation(props) {
                     <input
                         type="text"
                         placeholder="Enter end date"
-                        // onChange={handleChange}
-                        // value={formData.endDate}
+                        onChange={handleEducationChange}
+                        value={formEducationDetails.endDate}
                         name="endDate"
                         id="endDate"
                     />
@@ -49,8 +93,8 @@ function NewEducation(props) {
                     <input
                         type="text"
                         placeholder="Enter location"
-                        // onChange={handleChange}
-                        // value={formData.location}
+                        onChange={handleEducationChange}
+                        value={formEducationDetails.location}
                         name="location"
                         id="location"
                     />

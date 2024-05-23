@@ -5,7 +5,7 @@ import Education from "./components/Education"
 import Resume from './components/Resume'
 import PersonalDetailsResume from "./components/PersonalDetailsResume"
 import EducationResume from './components/EducationResume'
-import { v4 as uuidv4, v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
     const [formPersonalDetails, setFormPersonalDetails] = useState({
@@ -20,13 +20,8 @@ function App() {
         endDate: "May 2026",
         location: "Dekalb, IL",
         id: uuidv4(),
-    }, {
-        schoolName: "Elgin Community College",
-        degree: "Associates of Arts",
-        endDate: "May 2024",
-        location: "Elgin, IL",
-        id: uuidv4(),
-    }])
+    },
+    ])
 
     const handlePersonalDetailsChange = (e) => {
         const { name, value } = e.target
@@ -38,11 +33,27 @@ function App() {
         })
     }
 
+    const handleAddEducation = (newSchool) => {
+        setFormEducationDetails(prev => {
+            return [...prev, newSchool]
+        })
+    }
+
+    const handleDeleteEducation = (id) => {
+        setFormEducationDetails(formEducationDetails.filter(school => school.id !== id))
+    }
+
+    const handleEditEducation = (id, updatedSchool) => {
+        setFormEducationDetails(prev =>
+            prev.map(school => (school.id === id ? updatedSchool : school))
+        );
+    }
+
     return (
         <main>
             <div className='info'>
                 <PersonalDetails formData={formPersonalDetails} onChange={handlePersonalDetailsChange} />
-                <Education formData={formEducationDetails} />
+                <Education formData={formEducationDetails} onAddEducation={handleAddEducation} onDelete={handleDeleteEducation} onEditFormEducation={handleEditEducation} />
             </div>
             <div className='resume'>
                 <Resume formDataPersonalDetails={formPersonalDetails} formDataEducationDetails={formEducationDetails} />
@@ -50,5 +61,9 @@ function App() {
         </main>
     )
 }
+
+
+
+
 
 export default App

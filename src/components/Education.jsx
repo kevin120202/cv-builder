@@ -5,7 +5,7 @@ import NewEducation from "./NewEducation";
 
 function Education(props) {
     // console.log(props);
-    const [isShown, setIsShown] = useState(false);
+    const [isShown, setIsShown] = useState(true);
 
     const toggleShown = () => {
         setIsShown(prevShown => !prevShown)
@@ -17,7 +17,7 @@ function Education(props) {
                 onClick={toggleShown}
                 className="isShown-btn">{isShown ? "Hide" : "Show"} Education
             </button>
-            {isShown && <NewEducation formData={props.formData} />}
+            {isShown && <NewEducation formData={props.formData} onAddEducation={props.onAddEducation} onDelete={props.onDelete} onEditFormEducation={props.onEditFormEducation} />}
         </div>
     )
 }

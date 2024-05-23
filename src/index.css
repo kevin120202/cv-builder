@@ -42,7 +42,7 @@ form div {
     margin-bottom: 1em;
 }
 
-.schools-container {
+.schools-container div {
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
@@ -95,11 +95,8 @@ form div {
 
 /* education */
 
-.resume-schools-container {
+.resume-schools {
     display: flex;
     justify-content: space-between;
-}
-
-.resume-schools-container div {
     margin-bottom: 5px;
 }
